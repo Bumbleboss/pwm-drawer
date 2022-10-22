@@ -20,6 +20,6 @@ void LCD_GoTo(uint8 row , uint8 col);
 
 void LCD_WriteChar(uint8 chr);
 void LCD_WriteString(uint8* str);
-void LCD_WriteDouble(double nbr);
+void LCD_WriteDouble(double nbr, uint8 prec);
 
 #endif /* HALL_LCD_H_ */

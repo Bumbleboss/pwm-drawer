@@ -12,5 +12,5 @@ Pulse Width Modulation (PWM) drawer, which acts as a mini Oscilloscope that is r
 - LCD 1602A
 
 ## Preview
-![AMIT Kit PWM Drawer Preview](https://cdn.discordapp.com/attachments/393743743783796758/1033434551504097361/IMG_20221022_193855.jpg)
+![AMIT Kit PWM Drawer Preview](https://cdn.discordapp.com/attachments/393743743783796758/1033451374073090058/IMG_20221022_204608.jpg)
 Note: connected pins are PD6 - PD7

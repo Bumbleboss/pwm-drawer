@@ -6,6 +6,7 @@
  */
 
 #include "avr/interrupt.h"
+#include <math.h>
 
 #include "TIMERS.h"
 #include "../HALL/LCD.h"
@@ -33,14 +34,26 @@ ISR(TIMER1_CAPT_vect) {
 		double duty = (high) / (period + (256 * counter));
 
 		LCD_WriteString("F=");
-		LCD_WriteDouble(16000000.0 / period);
+		LCD_WriteDouble(16000000.0 / period, 1);
 
 		LCD_WriteString(" D=");
-		LCD_WriteDouble(duty * 100);
+		LCD_WriteDouble(duty * 100, 0);
+		LCD_WriteChar('%');
 
 		LCD_GoTo(1, 0);
+		int j = 0;
 		for (int i = 0; i < 16; i++) {
-			LCD_WriteChar(i < (duty * 10) ? '-' : '_');
+			j++;
+
+			if (i == 10) {
+				j = 0;
+			}
+
+			if (i > 10) {
+				LCD_WriteChar(j < round(duty * 10) ? '-' : '_');
+			} else {
+				LCD_WriteChar(j <= round(duty * 10) ? '-' : '_');
+			}
 		}
 	}
 }

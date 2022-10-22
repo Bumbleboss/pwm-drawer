@@ -13,7 +13,7 @@
 int main() {
 	LCD_Init();
 	Ti2_Init(T2_PWM);
-	Ti2_PWM(80);
+	Ti2_PWM(30);
 	ICU_Init();
 	Ti2_Start();
 
