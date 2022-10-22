@@ -5,4 +5,11 @@
  *      Author: Bumbleboss
  */
 
-void main() {}
+#include "HALL/LCD.h"
+
+int main() {
+	LCD_Init();
+	LCD_WriteString("Hello!");
+
+	while(1) {}
+}
