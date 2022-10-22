@@ -5,9 +5,7 @@
  *      Author: Bumbleboss
  */
 
-
 #include "avr/interrupt.h"
-#include <stdlib.h>
 
 #include "TIMERS.h"
 #include "../HALL/LCD.h"
@@ -33,17 +31,17 @@ ISR(TIMER1_CAPT_vect) {
 		period = (edge2 + (counter * 65536))  - edge1;
 
 		double duty = (high) / (period + (256 * counter));
-		double freq = 16000000.0 / period;
 
-		char output[16] = " ";
-		dtostrf(freq, 16, 2, output);
-		LCD_WriteString(output);
+		LCD_WriteString("F=");
+		LCD_WriteDouble(16000000.0 / period);
+
+		LCD_WriteString(" D=");
+		LCD_WriteDouble(duty * 100);
 
 		LCD_GoTo(1, 0);
-
-		char output2[16] = " ";
-		dtostrf(duty, 16, 2, output2);
-		LCD_WriteString(output2);
+		for (int i = 0; i < 16; i++) {
+			LCD_WriteChar(i < (duty * 10) ? '-' : '_');
+		}
 	}
 }
 

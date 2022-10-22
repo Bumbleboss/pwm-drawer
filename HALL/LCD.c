@@ -98,3 +98,10 @@ void LCD_WriteString(uint8* str) {
 		i++;
 	}
 }
+
+void LCD_WriteDouble(double nbr) {
+	char output[16] = " ";
+	dtostrf(nbr, 4, 1, output);
+
+	LCD_WriteString(output);
+}

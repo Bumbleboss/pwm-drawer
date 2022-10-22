@@ -9,6 +9,7 @@
 #define HALL_LCD_H_
 
 #include <util/delay.h>
+#include <stdlib.h>
 
 #include "../MCAL/DIO.h"
 #include "LCD_Cfg.h"
@@ -19,5 +20,6 @@ void LCD_GoTo(uint8 row , uint8 col);
 
 void LCD_WriteChar(uint8 chr);
 void LCD_WriteString(uint8* str);
+void LCD_WriteDouble(double nbr);
 
 #endif /* HALL_LCD_H_ */
