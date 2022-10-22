@@ -1,2 +1,2 @@
-# pwm-drawer
+# PWM Drawer
 AMIT Graduation Project - PWM Drawer
