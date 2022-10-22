@@ -12,17 +12,12 @@
 #include "../ETC/MACROS.h"
 #include "../ETC/REGISTERS.h"
 
-void DIO_SetPortDir(uint8 port, uint8 dir);
 void DIO_SetPinDir(uint8 port, uint8 pin, uint8 dir);
-void DIO_SetPortValue(uint8 port, uint8 value);
 void DIO_SetPinValue(uint8 port, uint8 pin, uint8 value);
+void DIO_SetPortValue(uint8 port, uint8 value);
 
 uint8 DIO_GetPort(uint8 port);
-uint8 DIO_GetPin(uint8 port, uint8 pin);
 uint8 DIO_GetPortValue(uint8 port);
-
-void DIO_TogglePin(uint8 port, uint8 pin);
-void DIO_SetPullUpRes(uint8 port, uint8 pin);
 
 typedef enum {
 	DIO_PORTA,

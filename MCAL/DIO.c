@@ -7,23 +7,6 @@
 
 #include "DIO.h"
 
-void DIO_SetPortDir(uint8 port, uint8 dir) {
-	switch(port) {
-		case DIO_PORTA:
-			DDRA = dir;
-			break;
-		case DIO_PORTB:
-			DDRB = dir;
-			break;
-		case DIO_PORTC:
-			DDRC = dir;
-			break;
-		case DIO_PORTD:
-			DDRD = dir;
-			break;
-	}
-}
-
 void DIO_SetPinDir(uint8 port, uint8 pin, uint8 dir) {
 	if (dir == HIGH) {
 		switch(port) {
@@ -58,37 +41,20 @@ void DIO_SetPinDir(uint8 port, uint8 pin, uint8 dir) {
 	}
 }
 
-void DIO_SetPortValue(uint8 port, uint8 value) {
-	switch(port) {
-		case DIO_PORTA:
-			PORTA = value;
-			break;
-		case DIO_PORTB:
-			PORTB = value;
-			break;
-		case DIO_PORTC:
-			PORTC = value;
-			break;
-		case DIO_PORTD:
-			PORTD = value;
-			break;
-	}
-}
-
 void DIO_SetPinValue(uint8 port, uint8 pin, uint8 value) {
 	if (value == HIGH) {
 		switch(port) {
 			case DIO_PORTA:
-				SET_PIN(PORTA,pin);
+				SET_PIN(PORTA, pin);
 				break;
 			case DIO_PORTB:
-				SET_PIN(PORTB,pin);
+				SET_PIN(PORTB, pin);
 				break;
 			case DIO_PORTC:
-				SET_PIN(PORTC,pin);
+				SET_PIN(PORTC, pin);
 				break;
 			case DIO_PORTD:
-				SET_PIN(PORTD,pin);
+				SET_PIN(PORTD, pin);
 				break;
 		}
 	} else if (value == LOW) {
@@ -109,6 +75,23 @@ void DIO_SetPinValue(uint8 port, uint8 pin, uint8 value) {
 	}
 }
 
+void DIO_SetPortValue(uint8 port, uint8 value) {
+	switch(port) {
+		case DIO_PORTA:
+			PORTA = value;
+			break;
+		case DIO_PORTB:
+			PORTB = value;
+			break;
+		case DIO_PORTC:
+			PORTC = value;
+			break;
+		case DIO_PORTD:
+			PORTD = value;
+			break;
+	}
+}
+
 uint8 DIO_GetPort(uint8 port) {
 	switch(port) {
 		case DIO_PORTA:
@@ -122,25 +105,6 @@ uint8 DIO_GetPort(uint8 port) {
 			break;
 		case DIO_PORTD:
 			return PIND;
-			break;
-	}
-
-	return -1;
-}
-
-uint8 DIO_GetPin(uint8 port, uint8 pin) {
-	switch(port) {
-		case DIO_PORTA:
-			return GET_PIN(PINA, pin);
-			break;
-		case DIO_PORTB:
-			return GET_PIN(PINB, pin);
-			break;
-		case DIO_PORTC:
-			return GET_PIN(PINC, pin);
-			break;
-		case DIO_PORTD:
-			return GET_PIN(PIND, pin);
 			break;
 	}
 
@@ -166,40 +130,4 @@ uint8 DIO_GetPortValue(uint8 port) {
 	}
 
 	return -1;
-}
-
-void DIO_TogglePin(uint8 port, uint8 pin) {
-	switch(port) {
-		case DIO_PORTA:
-			TOGGLE_PIN(PORTA, pin);
-			break;
-		case DIO_PORTB:
-			TOGGLE_PIN(PORTB, pin);
-			break;
-		case DIO_PORTC:
-			TOGGLE_PIN(PORTC, pin);
-			break;
-		case DIO_PORTD:
-			TOGGLE_PIN(PORTD, pin);
-			break;
-	}
-}
-
-void DIO_SetPullUpRes(uint8 port, uint8 pin) {
-	switch(port) {
-		case DIO_PORTA :
-			SET_PIN(PORTA,pin);
-			break;
-		case DIO_PORTB :
-			SET_PIN(PORTB,pin);
-			break;
-		case DIO_PORTC :
-			SET_PIN(PORTC,pin);
-			break;
-		case DIO_PORTD :
-			SET_PIN(PORTD,pin);
-			break;
-		default:
-			break;
-	}
 }

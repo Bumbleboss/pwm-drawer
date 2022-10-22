@@ -9,7 +9,6 @@
 #define HALL_LCD_H_
 
 #include <util/delay.h>
-#include <stdlib.h>
 
 #include "../MCAL/DIO.h"
 #include "LCD_Cfg.h"

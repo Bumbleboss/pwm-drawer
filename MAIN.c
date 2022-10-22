@@ -5,11 +5,17 @@
  *      Author: Bumbleboss
  */
 
+#include "ETC/MACROS.h"
 #include "HALL/LCD.h"
+#include "MCAL/TIMERS.h"
+#include <stdlib.h>
 
 int main() {
 	LCD_Init();
-	LCD_WriteString("Hello!");
+	Ti2_Init(T2_PWM);
+	Ti2_PWM(80);
+	ICU_Init();
+	Ti2_Start();
 
 	while(1) {}
 }
