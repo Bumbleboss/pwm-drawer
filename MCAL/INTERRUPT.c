@@ -34,10 +34,10 @@ ISR(TIMER1_CAPT_vect) {
 		double duty = (high) / (period + (256 * counter));
 
 		LCD_WriteString("F=");
-		LCD_WriteDouble(16000000.0 / period, 1);
+		LCD_WriteDouble(16000000.0 / period, 4, 1);
 
 		LCD_WriteString(" D=");
-		LCD_WriteDouble(duty * 100, 0);
+		LCD_WriteDouble(duty * 100, 2, 0);
 		LCD_WriteChar('%');
 
 		LCD_GoTo(1, 0);

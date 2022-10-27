@@ -12,10 +12,10 @@ volatile uint16 edge2;
 volatile uint16 fallingEdge;
 volatile uint8 counter = 0;
 
-void Ti1_Init(uint16 mode) {
+void Ti1_Init() {
 	SREG &= ~(1 << 7);
 	TCNT1 = 0;
-	TCCR1 = mode;
+	TCCR1 = 0x0000;
 
 	TIMSK |= 4;
 	TIMSK &= ~(8);
@@ -24,16 +24,16 @@ void Ti1_Init(uint16 mode) {
 	SREG |= (1 << 7);
 }
 
-void Ti2_Init(uint8 mode) {
+void Ti2_Init() {
 	SREG &= ~(1 << 7);
 	TCNT2 = 0x00;
-	TCCR2 = mode;
+	TCCR2 = 0x60;
 
 	SET_PIN(DDRD, 7);
 }
 
 void Ti2_Start() {
-	TCCR2 |= T2_PRESCALER_CODE;
+	TCCR2 |= 4;
 }
 
 void Ti2_PWM(uint8 duty) {
@@ -41,7 +41,7 @@ void Ti2_PWM(uint8 duty) {
 }
 
 void ICU_Init() {
-	Ti1_Init(T1_NORMAL);
+	Ti1_Init();
 	TCCR1 = 0x0041;
 	TIMSK |= (1 << 5);
 }

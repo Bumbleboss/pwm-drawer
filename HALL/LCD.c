@@ -99,9 +99,9 @@ void LCD_WriteString(uint8* str) {
 	}
 }
 
-void LCD_WriteDouble(double nbr, uint8 prec) {
+void LCD_WriteDouble(double nbr, uint8 width, uint8 prec) {
 	char output[16] = " ";
-	dtostrf(nbr, 4, prec, output);
+	dtostrf(nbr, width, prec, output);
 
 	LCD_WriteString(output);
 }

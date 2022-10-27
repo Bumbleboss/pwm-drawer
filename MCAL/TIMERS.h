@@ -12,17 +12,33 @@
 #include "../ETC/MACROS.h"
 #include "../ETC/REGISTERS.h"
 
-#define T1_NORMAL 0x0000
+/**
+	Initializes Timer 1 with mode as a parameter.
+	Currently defaults to Normal mode per project requisite.
+*/
+void Ti1_Init();
 
-#define T2_PWM 0x60
-#define T2_PRESCALER_CODE 4
+/**
+	Initializes Timer 2 with mode as a parameter.
+	Currently defaults to PWM mode (not to be confused with fast PWM mode) per project requisite.
 
-void Ti1_Init(uint16 mode);
+	As it initializes timer, interrupt is triggered. 
+*/
+void Ti2_Init();
 
-void Ti2_Init(uint8 mode);
-void Ti2_PWM(uint8 duty);
+/**
+	Starts Timer 2 with PRESCALER code.
+*/
 void Ti2_Start();
 
+/**
+	Provides Timer 2 with duty as a parameter
+*/
+void Ti2_PWM(uint8 duty);
+
+/**
+	Initializes Input Capture Unit (ICU).
+*/
 void ICU_Init();
 
 extern volatile uint16 edge1;
